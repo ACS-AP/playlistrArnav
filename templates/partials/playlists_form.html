@@ -1,0 +1,27 @@
+<!-- templates/partials/playlists_form.html -->
+
+<fieldset>
+  <legend style="color:rgb(90, 36, 133);">{{ title }}</legend>
+  <!-- TITLE -->
+  <div class="form-group">
+    <label for='playlist-title' style="color:rgb(90, 36, 133);">Title</label><br>
+    <input class='form-control' id='playlist-title' type='text' name='title' style="color:rgb(90, 36, 133);" value='{{ playlist.title }}' required/>
+  </div>
+  
+  <!-- DESCRIPTION -->
+  <div class="form-group">
+    <label for='description' style="color:rgb(90, 36, 133);">Description</label><br>
+    <input class='form-control' id='description' type='text' name='description' style="color:rgb(90, 36, 133);" value='{{ playlist.description }}' required/>
+  </div>
+  
+  <!-- VIDEO IDS -->
+  <div class="form-group">
+    <label for='playlist-video-ids' style="color:rgb(90, 36, 133);">Videos</label><br>
+    <p class='text-muted' style="color:rgb(90, 36, 133);">Add the ID of the videos you want to include in your playlist. You need to seperate with a new line.</p>
+    <textarea class='form-control' id='playlist-video-ids' name='video_ids' rows='10' required>{{ "\n".join(playlist.video_ids) }}</textarea>
+  </div>
+</fieldset>
+
+
+<a href="/" style="color:rgb(90, 36, 133); font-size: medium;">Cancel</a>
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 style="color:rgb(90, 36, 133);">Playlists</h1>
+
+  <a href="/playlists/new" style="color:rgb(90, 36, 133); font-size: larger; border: 2px solid black; border-radius: 5px;">New Playlist</a>
+
+  <div class="row">
+    {% for playlist in playlists %}
+      <div class="col-md-3 card">
+        <h2 class="card-title" style="color:rgb(90, 36, 133);"><a href='/playlists/{{ playlist._id }}' style="color:rgb(90, 36, 133);">{{ playlist.title }}</a></h2>
+        <small class="card-text" style="color:rgb(90, 36, 133);">{{ playlist.description }}</small>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
