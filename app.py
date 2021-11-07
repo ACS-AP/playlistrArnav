@@ -6,7 +6,9 @@ from datetime import datetime
 
 # MONGODB_URI is Config Var stored in settings: https://dashboard.heroku.com/apps/playlistr-sj/settings 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
-client = MongoClient(host=host)
+client = pymongo.MongoClient("mongodb+srv://MONGODB_URI:Anish091200@playlistrcluster.xqm7c.mongodb.net/test?retryWrites=true&w=majority")
+db = client.test
+#client = MongoClient(host=host)
 # db = client.test
 
 # client = MongoClient(host=f'{host}?retryWrites=false')
@@ -132,4 +134,4 @@ def delete_comment(playlist_id, comment_id):
 
 
 if __name__ == '__main__':
-  app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+  app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 8000))
