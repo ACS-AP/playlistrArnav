@@ -5,9 +5,8 @@ import os
 from datetime import datetime
 
 # MONGODB_URI is Config Var stored in settings: https://dashboard.heroku.com/apps/playlistr-sj/settings 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Playlister')
-client = pymongo.MongoClient("mongodb+srv://MONGODB_URI:Anish091200@playlistrcluster.xqm7c.mongodb.net/test?retryWrites=true&w=majority")
-db = client.test
+uri = os.environ.get('MONGODB_URI')
+client = MongoClient(uri)
 #client = MongoClient(host=host)
 # db = client.test
 
