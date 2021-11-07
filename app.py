@@ -1,22 +1,16 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask_pymongo import pymongo
 from pymongo import MongoClient
-from bson.objectid import ObjectId
-import os
-from datetime import datetime
 
-# MONGODB_URI is Config Var stored in settings: https://dashboard.heroku.com/apps/playlistr-sj/settings 
-uri = os.environ.get('MONGODB_URI')
-client = MongoClient(uri)
-#client = MongoClient(host=host)
-# db = client.test
 
-# client = MongoClient(host=f'{host}?retryWrites=false')
-# client = MongoClient(host=host)
+CONNECTION_STRING = "mongodb+srv://MONGODB_URI:Anish091200@playlistrcluster.xqm7c.mongodb.net/playlistrcluster?retryWrites=true&w=majority"
+client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_default_database()
-# db = client.Playlister
-# one collection from the database called 'playlists'
+
 playlists = db.playlists
 comments = db.comments
+
+from flask import Flask, render_template, request, redirect, url_for
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
